@@ -1,6 +1,6 @@
 (require 'package)
 (add-to-list 'package-archives
-	     '("melpa" . "http://melpa.org/packages/") t)
+	           '("melpa" . "http://melpa.org/packages/") t)
 
 (package-initialize)
 (when (not package-archive-contents)
@@ -20,10 +20,15 @@
   :config
   (quelpa-use-package-activate-advice))
 
+(unless (package-installed-p 'eglot)
+  (package-install 'eglot))
+
+(require 'eglot)
+
 (add-to-list 'load-path "~/.emacs.d/config")
 
 (require 'base)
-
+(require 'typescript)
 
 ;; TREE-SITTER
 
@@ -37,26 +42,6 @@
 (use-package tree-sitter-langs
   :ensure t
   :after tree-sitter)
-
-;; TYPESCRIPT
-(use-package typescript-mode
-  :after tree-sitter
-  :config
-  (define-derived-mode typescriptreact-mode typescript-mode
-    "TypeScript TSX")
-
-  (add-to-list 'auto-mode-alist '("\\.tsx?\\'" . typescriptreact-mode))
-  (add-to-list 'tree-sitter-major-mode-language-alist '(typescriptreact-mode . tsx)))
-
-(use-package tsi
-  :after tree-sitter
-  :quelpa (tsi :fetcher github :repo "orzechowskid/tsi.el")
-  :commands (tsi-typescript-mode tsi-json-mode tsi-css-mode)
-  :init
-  (add-hook 'typescript-mode-hook (lambda () (tsi-typescript-mode 1)))
-  (add-hook 'json-mode-hook (lambda () (tsi-json-mode 1)))
-  (add-hook 'scss-mode-hook (lambda () (tsi-scss-mode 1))))
-
 
 ;; APHELEIA
 (use-package apheleia

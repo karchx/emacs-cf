@@ -3,9 +3,12 @@
 (setq display-line-numbers-type 'relative)
 (setq make-backup-files nil)
 
+(setq backup-directory-alist
+      `(("." . , (concat user-emacs-directory "backups"))))
+
 (add-hook 'prog-mode-hook
-	  (lambda () (interactive)
-	    (setq show-trailing-whitespace 1)))
+	        (lambda () (interactive)
+	          (setq show-trailing-whitespace 1)))
 
 ;; use space to indent by default
 (setq-default indent-tabs-mode nil)
