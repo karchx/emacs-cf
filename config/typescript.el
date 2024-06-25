@@ -1,3 +1,5 @@
+;; TODO: Migrate flycheck
+
 (use-package flycheck
   :ensure t
   :config

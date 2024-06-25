@@ -12,14 +12,6 @@
 (require 'use-package)
 (setq use-package-always-ensure t)
 
-(use-package quelpa
-  :ensure)
-
-(use-package quelpa-use-package
-  :demand
-  :config
-  (quelpa-use-package-activate-advice))
-
 (unless (package-installed-p 'eglot)
   (package-install 'eglot))
 
