@@ -17,6 +17,21 @@
 (require 'use-package)
 (setq use-package-always-ensure t)
 
+;; THEME
+(unless (package-installed-p 'dracula-theme)
+  (package-refresh-contents)
+  (package-install 'dracula-theme))
+
+(load-theme 'dracula t)
+
+(use-package centaur-tabs
+  :demand
+  :config
+  (centaur-tabs-mode t)
+  :bind
+  ("C-j" . centaur-tabs-backward)
+  ("C-l" . centaur-tabs-forward))
+
 ;; (use-package project :ensure t)
 
 (add-to-list 'load-path "~/.emacs.d/config")
@@ -49,7 +64,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages '(tree-sitter-langs tree-sitter project)))
+ '(package-selected-packages '(centaur-tabs tree-sitter-langs tree-sitter project)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
