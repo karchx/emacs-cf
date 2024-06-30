@@ -40,6 +40,7 @@
 (require 'typescript)
 (require 'golang)
 (require 'terraform)
+(require 'c-c++)
 
 ;; TREE-SITTER
 
