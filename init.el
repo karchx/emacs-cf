@@ -39,6 +39,7 @@
 (require 'base)
 (require 'typescript)
 (require 'golang)
+(require 'terraform)
 
 ;; TREE-SITTER
 
