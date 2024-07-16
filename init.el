@@ -41,6 +41,7 @@
 (require 'golang)
 (require 'terraform)
 (require 'c-c++)
+(require 'rust)
 
 ;; TREE-SITTER
 
@@ -66,7 +67,8 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages '(centaur-tabs tree-sitter-langs tree-sitter project)))
+ '(package-selected-packages
+   '(rust-mode centaur-tabs tree-sitter-langs tree-sitter project)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
