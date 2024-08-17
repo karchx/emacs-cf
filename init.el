@@ -42,6 +42,7 @@
 (require 'terraform)
 (require 'c-c++)
 (require 'rust)
+(require 'py)
 
 ;; TREE-SITTER
 
